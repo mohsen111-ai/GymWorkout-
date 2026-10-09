@@ -203,6 +203,12 @@ class Notifier {
     return out;
   }
 
+  /// How many reminders are queued with Android. Used by the emulator test.
+  static Future<int> pendingCount() async {
+    if (!_ready) return -1;
+    return (await _plugin.pendingNotificationRequests()).length;
+  }
+
   static Future<void> reschedule(AppState st) async {
     if (!_ready) return;
     try {

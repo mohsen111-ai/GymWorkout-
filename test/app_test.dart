@@ -157,9 +157,7 @@ void main() {
     await _tap(t, find.text('Start workout'));
 
     for (var i = 0; i < total; i++) {
-      final done = find.textContaining(
-        RegExp(r'Set done|Move done|Finish'),
-      );
+      final done = find.textContaining(RegExp(r'Set done|Move done|Finish'));
       expect(done, findsOneWidget, reason: 'set ${i + 1} of $total');
       await t.tap(done);
       await _pump(t);
